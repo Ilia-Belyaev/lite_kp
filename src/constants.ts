@@ -1,0 +1,17 @@
+export enum AppRoute {
+  Main = '/',
+  Book = '/book',
+  BookId = '/book/:id',
+  BookChapter = '/book/:id/chapter',
+  Movie = '/movie',
+  MovieId = '/movie/:id',
+  MovieQuote = '/movie/:id/quote',
+  Character = '/character',
+  CharacterId = '/character/:id',
+  CharacterQuote = '/character/:id/quote',
+  Quote = '/quote',
+  QuoteId = '/quote/:id',
+  Chapter = '/chapter',
+  ChapterId = '/chapter/:id',
+  Error = '/*',
+}
