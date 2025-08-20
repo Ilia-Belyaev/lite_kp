@@ -8,5 +8,8 @@
 
 .film-card{
   width:auto;
-  /* height: auto; нужно минимальную щирину установить*/
+}
+.film-card-img {
+  width: calc(50vh - 20px);
+  height: calc(70vh - 10px);
 }

@@ -6,7 +6,7 @@ export enum AppRoute {
   Error = '/*',
 }
 
-export const MAX_VISIBLE_FILMS = 20;
+export const MAX_VISIBLE_FILMS = 10;
 
 export const FILM_COUNT = 10;
 
@@ -14,10 +14,19 @@ export enum NameSpace {
   PopularFilms = 'PopularFilms',
   FIlmGenres = 'Genres',
   CurrentGenreFilms = 'CurrentGenreFilms',
+  VisibleFilms = 'VisibleFilms',
+  CurrentFilmInfo = 'CurrentFilmInfo',
+  CurrentFilmNavBtn = 'CurrentFilmNavBtn',
 }
 
 export enum ApiRoute {
-  PopularKPFilms = '/movie?rating.kp=8.3-10&limit=250'
+  PopularKPFilms = '/movie?rating.kp=8.3-10&limit=250',
+  CurrentFilm = '/movie/',
+}
+
+export enum ErrorMessages {
+  NoID = 'ID не передан',
+  FailLoadData = 'Не удалось загрузить данные',
 }
 
 export const GENRES: Genres = [

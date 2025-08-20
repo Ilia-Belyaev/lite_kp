@@ -5,6 +5,9 @@ import { getPopularFilms } from '../../store/slices/popular-films/selectors';
 import Cards from './cards';
 import { getCurrentGenreFilms } from '../../store/slices/current-genre-films/selectors';
 import { setCurrentGenreFilms } from '../../store/slices/current-genre-films/current-genre-films';
+import NotFoundFilmCards from '../not-found-film-cards/not-found-film-cards';
+import { setEmptyVisibleFilms, setVisibleFilms } from '../../store/slices/visible-films/visible-films';
+import { getVisibleFilms } from '../../store/slices/visible-films/selectors';
 
 export default function CardsHOC() {
   const dispatch = useAppDispatch();
@@ -20,5 +23,12 @@ export default function CardsHOC() {
 
   const cards = useAppSelector(getCurrentGenreFilms);
 
-  return <Cards cards={cards}/>;
+  useEffect(() => {
+    dispatch(setEmptyVisibleFilms());
+    dispatch(setVisibleFilms(cards));
+  }, [cards, dispatch]);
+
+  const visibleCards = useAppSelector(getVisibleFilms);
+
+  return cards.length > 0 ? <Cards cards={visibleCards}/> : <NotFoundFilmCards/>;
 }
