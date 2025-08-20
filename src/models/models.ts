@@ -62,11 +62,11 @@ export type BackDrop = {
 }
 
 export type Rating = {
-  await: null;
-  filmCritics: number;
-  imdb: number;
   kp: number;
+  imdb: number;
+  filmCritics: number;
   russianFilmCritics: number;
+  await: number | null;
 }
 
 export type ReleaseYears = ReleaseYear[];
@@ -75,3 +75,132 @@ export type ReleaseYear = {
   start: number;
   end: number;
 }
+
+export type FilmId = number;
+
+export type FilmInfo = {
+  id: FilmId;
+  externalId: {
+    imdb: string;
+    tmdb: number;
+    kpHD: string;
+  };
+  name: string;
+  alternativeName: string | null;
+  enName: string | null;
+  names: LocalizedName[];
+  type: string;
+  typeNumber: number;
+  year: number;
+  description: string;
+  shortDescription: string;
+  slogan: string;
+  status: string | null;
+  rating: Rating;
+  votes: Rating;
+  movieLength: number;
+  totalSeriesLength: number | null;
+  seriesLength: number | null;
+  ratingMpaa: string | null;
+  ageRating: number;
+  poster: BackDrop;
+  backdrop: BackDrop;
+  genres: { name: string }[];
+  countries: { name: string }[];
+  persons: Person[];
+  budget?: {
+    currency: string;
+    value: number;
+  };
+  premiere: {
+    country: string | null;
+    digital: string | null;
+    cinema: string | null;
+    bluray: string | null;
+    dvd: string | null;
+    russia: string | null;
+    world: string | null;
+  };
+  sequelsAndPrequels: RelatedMovie[];
+  top10: number | null;
+  top250: number | null;
+  isSeries: boolean;
+  audience: { count: number; country: string }[];
+  ticketsOnSale: boolean;
+  lists: string[];
+  networks: string | null;
+  createdAt: string;
+  updatedAt: string;
+  videos: {
+    trailers: Trailer[];
+  };
+  fees: {
+    usa: Fee;
+    world: Fee;
+  };
+  logo: BackDrop;
+  isTmdbChecked: boolean;
+  watchability: {
+    items: unknown[]; // можно уточнить позже
+  };
+  userRatingsParsed: boolean;
+  facts: Fact[];
+  similarMovies: SimilarMovie[];
+  keywordsParsed: boolean;
+  studioParsed: boolean;
+}
+
+export type LocalizedName = {
+  name: string;
+  language: string;
+  type: string | null;
+}
+
+export type Person = {
+  id: number;
+  photo: string;
+  name: string | null;
+  enName: string | null;
+  description: string | null;
+  profession: string;
+  enProfession: string;
+}
+
+export type RelatedMovie = {
+  id: number;
+  name: string;
+  alternativeName: string | null;
+  enName: string | null;
+  type: string;
+  poster: BackDrop;
+}
+
+export type Trailer = {
+  url: string;
+  name: string;
+  site: string;
+  type: string;
+}
+
+export type Fee = {
+  value: number;
+  currency: string;
+}
+
+export type Fact = {
+  value: string;
+  type: string;
+  spoiler: boolean;
+}
+
+export type SimilarMovie = {
+  id: number;
+  name: string;
+  alternativeName: string | null;
+  type: string;
+  poster: BackDrop;
+  rating: Rating;
+  year: number;
+}
+
+
