@@ -3,13 +3,13 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 20px;
 }
 
-.film-card{
+.title-card{
   width:auto;
 }
-.film-card-img {
-  width: calc(50vh - 20px);
-  height: calc(70vh - 10px);
+.title-card-img {
+  width: 30vh;
+  height: 50vh;
 }

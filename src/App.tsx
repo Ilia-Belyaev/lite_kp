@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { AppRoute } from './constants';
-import Main from './components/main';
+import Main from './components/main/main';
 import { useAppSelector } from './hooks';
-import { getErrorStatus, getLoadStatus } from './store/slices/popular-films/selectors';
+import { getErrorStatus, getLoadStatus } from './store/slices/popular-titles/selectors';
 import Error from './pages/error/error';
 import Loading from './components/loading/loading';
-import FilmHOC from './pages/film-hoc/film-hoc';
+import TitleHOC from './pages/title-hoc/title-hoc';
 import NotFoundScreen from './pages/not-found-screen/not-found-screen';
 
 export default function App() {
@@ -28,8 +28,8 @@ export default function App() {
           element={<Main />}
         />
         <Route
-          path={AppRoute.Film}
-          element={<FilmHOC/>}
+          path={AppRoute.Title}
+          element={<TitleHOC/>}
         />
         <Route
           path={AppRoute.Error}

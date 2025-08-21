@@ -2,26 +2,26 @@ import { Genres } from './models/models';
 
 export enum AppRoute {
   Main = '/',
-  Film = '/film/:id',
+  Title = '/title/:id',
   Error = '/*',
 }
 
-export const MAX_VISIBLE_FILMS = 10;
+export const MAX_VISIBLE_TITLES = 10;
 
-export const FILM_COUNT = 10;
+export const TITLE_COUNT = 10;
 
 export enum NameSpace {
-  PopularFilms = 'PopularFilms',
-  FIlmGenres = 'Genres',
-  CurrentGenreFilms = 'CurrentGenreFilms',
-  VisibleFilms = 'VisibleFilms',
-  CurrentFilmInfo = 'CurrentFilmInfo',
-  CurrentFilmNavBtn = 'CurrentFilmNavBtn',
+  PopularTitles = 'PopularTitles',
+  TitleGenres = 'Genres',
+  CurrentGenreTitles = 'CurrentGenreTitles',
+  VisibleTitles = 'VisibleTitles',
+  CurrentTitleInfo = 'CurrentTitleInfo',
+  CurrentTitleNavBtn = 'CurrentTitleNavBtn',
 }
 
 export enum ApiRoute {
-  PopularKPFilms = '/movie?rating.kp=8.3-10&limit=250',
-  CurrentFilm = '/movie/',
+  PopularKPTitles = '/movie?rating.kp=8.3-10&limit=250',
+  CurrentTitle = '/movie/',
 }
 
 export enum ErrorMessages {

@@ -1,34 +1,34 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getGenre } from '../../store/slices/genres/selectors';
-import { getPopularFilms } from '../../store/slices/popular-films/selectors';
+import { getPopularTitles } from '../../store/slices/popular-titles/selectors';
 import Cards from './cards';
-import { getCurrentGenreFilms } from '../../store/slices/current-genre-films/selectors';
-import { setCurrentGenreFilms } from '../../store/slices/current-genre-films/current-genre-films';
-import NotFoundFilmCards from '../not-found-film-cards/not-found-film-cards';
-import { setEmptyVisibleFilms, setVisibleFilms } from '../../store/slices/visible-films/visible-films';
-import { getVisibleFilms } from '../../store/slices/visible-films/selectors';
+import { getCurrentGenreTitles } from '../../store/slices/current-genre-titles/selectors';
+import { setCurrentGenreTitles } from '../../store/slices/current-genre-titles/current-genre-titles';
+import NotFoundTitleCards from '../not-found-title-cards/not-found-title-cards';
+import { setEmptyVisibleTitles, setVisibleTitles } from '../../store/slices/visible-titles/visible-titles';
+import { getVisibleTitles } from '../../store/slices/visible-titles/selectors';
 
 export default function CardsHOC() {
   const dispatch = useAppDispatch();
 
   const genre = useAppSelector(getGenre);
-  const films = useAppSelector(getPopularFilms);
+  const titles = useAppSelector(getPopularTitles);
 
   useEffect(() => {
-    if (films.length) {
-      dispatch(setCurrentGenreFilms([films, genre]));
+    if (titles.length) {
+      dispatch(setCurrentGenreTitles([titles, genre]));
     }
-  }, [films, genre, dispatch]);
+  }, [titles, genre, dispatch]);
 
-  const cards = useAppSelector(getCurrentGenreFilms);
+  const cards = useAppSelector(getCurrentGenreTitles);
 
   useEffect(() => {
-    dispatch(setEmptyVisibleFilms());
-    dispatch(setVisibleFilms(cards));
+    dispatch(setEmptyVisibleTitles());
+    dispatch(setVisibleTitles(cards));
   }, [cards, dispatch]);
 
-  const visibleCards = useAppSelector(getVisibleFilms);
+  const visibleCards = useAppSelector(getVisibleTitles);
 
-  return cards.length > 0 ? <Cards cards={visibleCards}/> : <NotFoundFilmCards/>;
+  return cards.length > 0 ? <Cards cards={visibleCards}/> : <NotFoundTitleCards/>;
 }
