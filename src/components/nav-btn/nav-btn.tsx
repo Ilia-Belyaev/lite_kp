@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { getBtn } from '../../store/slices/current-film-nav-btn/selectors';
-import { setBtn } from '../../store/slices/current-film-nav-btn/current-film-nav-btn';
+import { getBtn } from '../../store/slices/current-title-nav-btn/selectors';
+import { setBtn } from '../../store/slices/current-title-nav-btn/current-title-nav-btn';
 import { replaceName } from '../../utilites/utilites';
 
 type NavBtnProps = {
@@ -16,6 +16,8 @@ export default function NavBtn({btn}: NavBtnProps) {
   };
 
   return (
-    <button className={cn('current-film-button', replaceName(btn) === currentBtn ? 'current-film-button--active' : '')} onClick={handleClick}>{btn}</button>
+    <li className={cn('current-title-button-container', replaceName(btn) === currentBtn ? 'current-title-button-container--active' : '')} onClick={handleClick}>
+      <button>{btn}</button>
+    </li>
   );
 }

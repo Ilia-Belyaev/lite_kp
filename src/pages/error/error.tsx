@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../hooks';
-import { fetchPopularFilmAction } from '../../store/api-actions';
+import { fetchPopularTitleAction } from '../../store/api-actions';
 import Image from '../../images/error_img.svg';
 import '../../css/error.css';
 
@@ -12,7 +12,7 @@ export default function Error () {
       <p className="error__text">Не удалось загрузить фильмы</p>
       <button
         onClick={() => {
-          dispatch(fetchPopularFilmAction());
+          dispatch(fetchPopularTitleAction());
         }}
         className="replay--error"
         type="button"

@@ -1,14 +1,14 @@
 export type ServerResponse = {
-  docs: FilmCards;
+  docs: TitleCards;
   total: number;
   limit: number;
   page: number;
   pages: number;
 }
 
-export type FilmCards = FilmCard[];
+export type TitleCards = TitleCard[];
 
-export type FilmCard = {
+export type TitleCard = {
   ageRating: null | number;
   alternativeName: null | string;
   backDrop?: BackDrop;
@@ -76,10 +76,10 @@ export type ReleaseYear = {
   end: number;
 }
 
-export type FilmId = number;
+export type TitleId = number;
 
-export type FilmInfo = {
-  id: FilmId;
+export type TitleInfo = {
+  id: TitleId;
   externalId: {
     imdb: string;
     tmdb: number;
@@ -105,7 +105,7 @@ export type FilmInfo = {
   ageRating: number;
   poster: BackDrop;
   backdrop: BackDrop;
-  genres: { name: string }[];
+  genres: Genres;
   countries: { name: string }[];
   persons: Person[];
   budget?: {

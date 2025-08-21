@@ -1,22 +1,23 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { createAPI } from './services/api';
 import { NameSpace } from '../constants';
-import { popularFilms } from './slices/popular-films/popuar-films';
+import { currentTitleInfo } from './slices/current-title-info/current-title-info';
+import { popularTitles } from './slices/popular-titles/popuar-titles';
 import { genres } from './slices/genres/genres';
-import { currentGenreFilms } from './slices/current-genre-films/current-genre-films';
-import { visibleFilms } from './slices/visible-films/visible-films';
-import { currentFilmInfo } from './slices/current-film-info/current-film-info';
-import { currentFilmNavBtn } from './slices/current-film-nav-btn/current-film-nav-btn';
+import { currentGenreTitles } from './slices/current-genre-titles/current-genre-titles';
+import { visibleTitles } from './slices/visible-titles/visible-titles';
+import { currentTitleNavBtn } from './slices/current-title-nav-btn/current-title-nav-btn';
+
 
 const api = createAPI();
 
 export const createReducers = combineReducers({
-  [NameSpace.PopularFilms]: popularFilms.reducer,
-  [NameSpace.FIlmGenres]: genres.reducer,
-  [NameSpace.CurrentGenreFilms]: currentGenreFilms.reducer,
-  [NameSpace.VisibleFilms]: visibleFilms.reducer,
-  [NameSpace.CurrentFilmInfo]: currentFilmInfo.reducer,
-  [NameSpace.CurrentFilmNavBtn]: currentFilmNavBtn.reducer,
+  [NameSpace.PopularTitles]: popularTitles.reducer,
+  [NameSpace.TitleGenres]: genres.reducer,
+  [NameSpace.CurrentGenreTitles]: currentGenreTitles.reducer,
+  [NameSpace.VisibleTitles]: visibleTitles.reducer,
+  [NameSpace.CurrentTitleInfo]: currentTitleInfo.reducer,
+  [NameSpace.CurrentTitleNavBtn]: currentTitleNavBtn.reducer,
 });
 
 export const store = configureStore({

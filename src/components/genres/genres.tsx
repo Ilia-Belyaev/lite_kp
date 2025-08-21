@@ -1,5 +1,5 @@
 import { GENRES } from '../../constants';
-import GenreFilm from './genreFilm';
+import GenreFilm from './genre-title';
 import '../../css/genres.css';
 
 export default function Genres() {

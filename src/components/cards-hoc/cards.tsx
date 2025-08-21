@@ -1,9 +1,9 @@
-import { FilmCards } from '../../models/models';
+import { TitleCards } from '../../models/models';
 import Card from './card';
 import '../../css/cards.css';
 
 type CardsProps = {
-  cards: FilmCards;
+  cards: TitleCards;
 };
 
 export default function Cards({cards}: CardsProps) {

@@ -1,7 +1,7 @@
-import { GENRES, MAX_VISIBLE_FILMS } from '../constants';
-import { BackDrop, FilmCards, Genre } from '../models/models';
+import { GENRES, MAX_VISIBLE_TITLES } from '../constants';
+import { BackDrop, TitleCards, Genre, Genres } from '../models/models';
 
-export const filterFilms = (payload: [FilmCards, Genre]) => {
+export const filterTitles = (payload: [TitleCards, Genre]) => {
   const [films, genre] = payload;
   const a = genre.name === GENRES[0].name ? films : films.filter((film) => film.genres.some((currentGenre) => currentGenre.name === genre.name));
 
@@ -12,7 +12,7 @@ export const setPhotoUrl = (poster: BackDrop | undefined, backDrop: BackDrop | u
   poster?.url ?? poster?.previewUrl ??
   backDrop?.url ?? backDrop?.previewUrl ?? undefinedImage;
 
-export const addVisibleFilms = (films: FilmCards, filmslength: number) => films.slice(0, filmslength + MAX_VISIBLE_FILMS);
+export const addVisibleTitles = (films: TitleCards, filmslength: number) => films.slice(0, filmslength + MAX_VISIBLE_TITLES);
 
 export const createNavBtnArray = (type: string, secondBtn: string) => {
   switch (type) {
@@ -43,3 +43,5 @@ export const replaceName = (type: string) => {
       return 'Детали';
   }
 };
+
+export const setGenresInline = (genres: Genres) => `${String(genres.map((genre) => genre.name.concat(', '))).slice(0, -2)}.`;
