@@ -1,5 +1,5 @@
 import { GENRES, MAX_VISIBLE_TITLES } from '../constants';
-import { BackDrop, TitleCards, Genre, Genres } from '../models/models';
+import { BackDrop, TitleCards, Genre, Genres, Person } from '../models/models';
 
 export const filterTitles = (payload: [TitleCards, Genre]) => {
   const [films, genre] = payload;
@@ -44,4 +44,8 @@ export const replaceName = (type: string) => {
   }
 };
 
-export const setGenresInline = (genres: Genres) => `${String(genres.map((genre) => genre.name.concat(', '))).slice(0, -2)}.`;
+export const setGenresInline = (genres: Genres) => `${String(genres.map((genre) => genre.name.concat('')))}.`;
+
+export const getPersonsCurrentRole = (persons: Person[], role: string) => persons.filter((person) => person.profession === role);
+
+export const upperCaseLetter = (letter: string) => `${letter[0].toUpperCase() + letter.slice(1)}:`;

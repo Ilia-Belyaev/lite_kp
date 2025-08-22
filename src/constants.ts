@@ -19,6 +19,16 @@ export enum NameSpace {
   CurrentTitleNavBtn = 'CurrentTitleNavBtn',
 }
 
+export const PERSONS_NAMESPACE = [
+  {name: 'актеры'},
+  {name: 'композиторы'},
+  {name: 'продюсеры'},
+  {name: 'режиссеры'},
+  {name: 'сценаристы'},
+  {name: 'операторы'},
+  {name: 'монтажеры'},
+];
+
 export enum ApiRoute {
   PopularKPTitles = '/movie?rating.kp=8.3-10&limit=250',
   CurrentTitle = '/movie/',
