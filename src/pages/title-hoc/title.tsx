@@ -22,13 +22,16 @@ export default function Title({title}: FilmProps) {
     <>
       <Header />
       <section className='current-title-container'>
-        <div className={cn('current-title-name', currentBtn === 'Детали' ? 'current-title-name-transform' : '')}>{title.name}</div>
+        <div className='current-title-name-container'>
+          <p className={cn('current-title-name', currentBtn === 'Детали' ? 'current-title-name-transform' : '')}>{title.name}</p>
+          {title.alternativeName && <p className={cn('current-title-alternative-name', currentBtn === 'Детали' ? 'current-title-name-transform' : '')}>{`(${title.alternativeName})`}</p>}
+        </div>
         <div className='current-title-nav'>
           <ul className='nav-ul'>
             {btnArray.map((btn) => <NavBtn btn={btn} key={btn}/>)}
           </ul>
         </div>
-        <CurrentTitleInfo title={title}/>
+        <CurrentTitleInfo />
       </section>
       <Footer />
     </>

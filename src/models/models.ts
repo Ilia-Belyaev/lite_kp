@@ -107,7 +107,7 @@ export type TitleInfo = {
   backdrop: BackDrop;
   genres: Genres;
   countries: { name: string }[];
-  persons: Person[];
+  persons?: Person[];
   budget?: {
     currency: string;
     value: number;
@@ -140,8 +140,8 @@ export type TitleInfo = {
   };
   logo: BackDrop;
   isTmdbChecked: boolean;
-  watchability: {
-    items: unknown[]; // можно уточнить позже
+  watchability?: {
+    items: Items;
   };
   userRatingsParsed: boolean;
   facts: Fact[];
@@ -203,4 +203,12 @@ export type SimilarMovie = {
   year: number;
 }
 
+export type Items = Item[];
 
+export type Item = {
+  name: string;
+  logo: {
+    url: string;
+  };
+  url: string;
+};

@@ -1,20 +1,15 @@
 import { useAppSelector } from '../../hooks';
-import { TitleInfo } from '../../models/models';
 import { getBtn } from '../../store/slices/current-title-nav-btn/selectors';
-import AboutTitle from './about-title';
-import TitleDetails from './title-details';
+import { About } from './about-title';
+import { Details } from './title-details';
 
-type CurrentTitleInfoProps = {
-  title: TitleInfo;
-}
-
-export default function CurrentTitleInfo({title}: CurrentTitleInfoProps) {
+export default function CurrentTitleInfo() {
   const currentBtn = useAppSelector(getBtn);
 
   switch(currentBtn) {
     case 'Детали' :
-      return <TitleDetails title={title}/>;
+      return <Details />;
     default:
-      return <AboutTitle title={title}/>;
+      return <About />;
   }
 }
