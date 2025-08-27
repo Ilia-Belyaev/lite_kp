@@ -1,19 +1,24 @@
 import { Person } from '../../models/models';
-import { useState } from 'react';
 
 type TitleDetailsPersonsProps = {
   person: Person;
+  hover: React.Dispatch<React.SetStateAction<{
+    stringVal: string;
+    booleanVal: boolean;
+}>>;
 }
 
-export default function TitleDetailsPersons({person}: TitleDetailsPersonsProps) {
-  const {photo, name, description} = person;
-  const [isHovered, setIsHovered] = useState(false);
+export default function TitleDetailsPersons({person, hover}: TitleDetailsPersonsProps) {
+  const {name, description, photo} = person;
 
   return name ? (
-    <li className='title-person-inner-container' onMouseMove={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-      {isHovered && <img className='title-person-image' src={photo}/>}
+    <li
+      className='title-person-inner-container'
+      onMouseMove={() => hover({stringVal: photo, booleanVal: true})}
+      onMouseLeave={() => hover({stringVal: '', booleanVal: false})}
+    >
       <div>{name}</div>
-      {description && <div>Персонаж: {description}</div>}
+      {description && <div className='title-details-hero-description'>Персонаж: {description}</div>}
     </li>
   ) : '';
 }

@@ -1,6 +1,6 @@
 import { PERSONS_NAMESPACE } from '../../constants';
 import { TitleInfo } from '../../models/models';
-import { setGenresInline } from '../../utilites/utilites';
+import { setCountriesInline, setGenresInline } from '../../utilites/utilites';
 import RoleMarkup from '../role-markup/role-markup';
 import WatchabilityItem from '../watchability-item/watchability-item';
 import { CurrentTitleInfoHOC } from './current-title-info-hoc';
@@ -22,10 +22,16 @@ export default function TitleDetails({title, classes}:TitleDetailsProps) {
             {description ?? shortDescription}
           </div>
           <p className='current-info-genre'>
-            <div>
+            <span>
               Жанр:
-            </div>
-            {`${setGenresInline(genres)}`}
+            </span>
+            {` ${setGenresInline(genres)}`}
+          </p>
+          <p className='current-info-countries'>
+            <span>
+              Страны:
+            </span>
+            {` ${setCountriesInline(countries)}`}
           </p>
         </div>
         <div className='watchability'>

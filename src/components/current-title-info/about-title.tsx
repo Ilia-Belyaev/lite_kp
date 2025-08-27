@@ -16,7 +16,7 @@ export default function AboutTitle({title, classes}: AboutTitleProps) {
   return(
     <>
       <div className='current-title-poster-container'>
-        <img className={classes('current-title-poster', 'showFromDown')} src={setPhotoUrl(poster, backdrop, UndefinedImage)}/>
+        <img className={classes('current-title-poster', 'showFromRight')} src={setPhotoUrl(poster, backdrop, UndefinedImage)}/>
       </div>
       <div className='current-info'>
         <div className={classes('description-container', 'showFromLeft')}>
