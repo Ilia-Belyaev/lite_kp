@@ -6,11 +6,19 @@
 .show-more {
   position: absolute;
   left: 50%;
+  width:150px;
+  height: 50px;
   top: 50%;
+  background-color: black;
   justify-content: center;
   transform: translate(-50%,-50%);
-  border: 5px solid blue;
+  border: 1px solid rgb(233, 180, 110);
   border-radius: 10px;
+  transition: font-size 1.5s ease;
+}
+
+.show-more:hover {
+  font-size: 1.3em;
 }
 
 .show-more-hidden {

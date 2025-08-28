@@ -4,7 +4,7 @@
   font-weight: 300;
   font-style: normal;
   color: aliceblue;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 :root {
@@ -23,13 +23,14 @@
 .current-title-container {
   display: grid;
   grid-template-areas: 
-    'B B B B  B B B B  B B B B'
-    'C C C C  G G G G  F F F F'
-    'D D D D  E E E E  F F F F'
-    'D D D D  E E E E  F F F F';
+    'B B B'
+    'C G F'
+    'D E F'
+    'D . F';
   gap: 20px;
   background-image: url('../images/background-image.jpg');
-
+  height: fit-content;
+  min-height: 100vh;
 }
 
 .current-title-name-container {
@@ -41,6 +42,7 @@
   font-weight: 400;
   font-style: normal;
   height: fit-content;
+  max-height: 40vh;
 }
 
 .current-title-name, .current-title-alternative-name {
@@ -48,9 +50,11 @@
   color: var(--color);
 }
 .current-title-name-transform {
+  
   transform:
     translate( 50px, 50px)
-    scale(1.2);
+    scale(1.1);
+    
 }
 
 .current-title-poster-container{

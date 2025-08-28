@@ -1,6 +1,6 @@
 import { TitleCards } from '../../models/models';
 import Card from './card';
-import '../../css/cards.css';
+import './cards.css';
 
 type CardsProps = {
   cards: TitleCards;

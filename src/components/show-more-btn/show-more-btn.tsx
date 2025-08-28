@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getCurrentGenreTitles } from '../../store/slices/current-genre-titles/selectors';
 import { setVisibleTitles } from '../../store/slices/visible-titles/visible-titles';
 import { getVisibleTitles } from '../../store/slices/visible-titles/selectors';
-import '../../css/show-more-btn.css';
+import './show-more-btn.css';
 
 export default function ShowMoreBtn() {
   const dispatch = useAppDispatch();
