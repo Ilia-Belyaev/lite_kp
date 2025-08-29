@@ -1,5 +1,5 @@
 import { GENRES, MAX_VISIBLE_TITLES } from '../constants';
-import { BackDrop, TitleCards, Genre, Genres, Person, Countries } from '../models/models';
+import { BackDrop, TitleCards, Genre, Genres, Person, Countries, SearchInfo } from '../models/models';
 
 export const filterTitles = (payload: [TitleCards, Genre]) => {
   const [films, genre] = payload;
@@ -50,3 +50,35 @@ export const setCountriesInline = (countries: Countries) => `${String(countries.
 export const getPersonsCurrentRole = (persons: Person[], role: string) => persons.filter((person) => person.profession === role);
 
 export const upperCaseLetter = (letter: string) => `${letter[0].toUpperCase() + letter.slice(1)}:`;
+
+export const findSearchingTitles = (titles: TitleCards, info: SearchInfo) => {
+  const isValidInput = /^[a-zA-Za-яА-Я0-9\s]+$/.test(info.letter);
+
+  if (!isValidInput && info.letter.length !== 0) {
+    return {titles: [] as TitleCards, searchIsOpened: info.isOpen, letter: info.letter};
+  }
+
+  const newFindedTitles = titles.filter((title) => title.name.toLowerCase().includes(info.letter.trim().toLowerCase()));
+
+  return {titles: newFindedTitles, searchIsOpened: info.isOpen, letter: info.letter};
+};
+
+export const getLastVisibleCards = (searchingCards: TitleCards, genreCards: TitleCards, isSearchOpened: boolean, text: string) => {
+
+  switch(true){
+    case (!isSearchOpened):
+      return genreCards;
+    case (text.length === 0):
+      return genreCards;
+    case (searchingCards.length === 0):
+      return [] as TitleCards;
+    case (searchingCards.length > 0):
+      return searchingCards;
+    default: {
+      return genreCards;
+    }
+  }
+};
+
+export const getFilteredFilms = (films: TitleCards) => films.filter((title) => title.name !== null);
+

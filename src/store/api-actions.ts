@@ -3,6 +3,7 @@ import { TitleCards, TitleId, TitleInfo, ServerResponse } from '../models/models
 import { AppDispatch, State } from '../models/state';
 import { AxiosInstance } from 'axios';
 import { ApiRoute, ErrorMessages } from '../constants';
+import { getFilteredFilms } from '../utilites/utilites';
 
 export const fetchPopularTitleAction = createAsyncThunk<TitleCards, undefined, {
   dispatch: AppDispatch;
@@ -15,7 +16,7 @@ export const fetchPopularTitleAction = createAsyncThunk<TitleCards, undefined, {
     const {data} = await api.get<ServerResponse>(ApiRoute.PopularKPTitles);
     const films = data.docs;
 
-    return films;
+    return getFilteredFilms(films);
   }
 );
 
