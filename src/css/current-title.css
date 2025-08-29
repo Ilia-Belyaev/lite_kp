@@ -1,12 +1,3 @@
-* {
-  font-family: "Source Serif 4", serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  color: aliceblue;
-  /* border: 2px solid blue; */
-}
-
 :root {
   --color: rgb(233, 180, 110); 
   --transition: transform 1.5s ease, opacity 1.5s ease;

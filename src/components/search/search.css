@@ -1,0 +1,16 @@
+.ant-search-button {
+  background-color: black;
+  border-color: rgb(233,180,110);
+}
+.ant-search-button:hover {
+  background-color: rgb(233,180,110) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.ant-search-input, .ant-search-input:focus, .ant-search-input:hover {
+  width: 300px;  
+  color: 'black';
+  border-color:'black';
+  background-color: rgb(233,180,110);
+}

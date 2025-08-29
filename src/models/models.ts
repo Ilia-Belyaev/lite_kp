@@ -212,3 +212,14 @@ export type Item = {
   };
   url: string;
 };
+
+export type SearchInfo = {
+  letter: string;
+  isOpen: boolean;
+}
+
+export type SearchTitles = {
+  titles: TitleCards;
+  searchIsOpened: boolean;
+  letter: string;
+}
