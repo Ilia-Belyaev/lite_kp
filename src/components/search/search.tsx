@@ -1,54 +1,62 @@
 import { Button, Input, InputRef, Popover, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import './search.css';
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, memo, useCallback, useMemo, useRef, useState } from 'react';
 import { useAppDispatch } from '../../hooks';
 import { setVisibleTitlesAfterSearch } from '../../store/slices/current-genre-titles/current-genre-titles';
+import { debounce } from '../../utilites/utilites';
 
-export default function SearchButton() {
+function SearchButton() {
   const dispatch = useAppDispatch();
   const [value, setValue] = useState('');
   const inputRef = useRef<InputRef>(null);
 
-  const handleChange = (data: ChangeEvent<HTMLInputElement>) => {
-    setValue(data.target.value);
-    dispatch(setVisibleTitlesAfterSearch(
-      {
-        letter: data.target.value,
+  const debouncedDispatch = useCallback(
+    debounce((searchValue: string) => {
+      dispatch(setVisibleTitlesAfterSearch({
+        letter: searchValue,
         isOpen: true,
-      }
-    ));
-  };
+      }));
+    }, 300),
+    [dispatch]
+  );
 
-  const content = (
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setValue(newValue);
+    debouncedDispatch(newValue);
+  }, [debouncedDispatch]);
+
+  const content = useMemo(() => (
     <div>
       <Input
         placeholder="Введите название"
         className='ant-search-input'
-        onChange={(data) => handleChange(data)}
+        onChange={(data) => {
+          setValue(data.target.value);
+          handleChange(data);
+        }}
         value={value}
         ref={inputRef}
       />
     </div>
-  );
+  ), [handleChange, value]);
 
-  const handleFocus = () => {
+  const handleFocus = useCallback(() => {
     setTimeout(() => {
       if (inputRef.current) {
         inputRef.current.focus();
       }
     }, 0);
-  };
+  }, []);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setValue('');
-    dispatch(setVisibleTitlesAfterSearch(
-      {
-        letter: '',
-        isOpen: false,
-      }
-    ));
-  };
+    dispatch(setVisibleTitlesAfterSearch({
+      letter: '',
+      isOpen: false,
+    }));
+  }, [dispatch]);
 
   return (
     <Space title="Поиск">
@@ -74,3 +82,4 @@ export default function SearchButton() {
   );
 }
 
+export const MemoizedSearch = memo(SearchButton);

@@ -15,13 +15,14 @@
   display: grid;
   grid-template-areas: 
     'B B B'
-    'C G F'
-    'D E F'
-    'D . F';
+    'C . F'
+    'D E F';
   gap: 20px;
+  min-height: 100vh;
+}
+.title-big-container {
   background-image: url('../images/background-image.jpg');
   height: fit-content;
-  min-height: 100vh;
 }
 
 .current-title-name-container {
@@ -40,13 +41,24 @@
   transition: transform .5s ease;
   color: var(--color);
 }
+
 .current-title-name-transform {
-  
   transform:
     translate( 50px, 50px)
     scale(1.1);
-    
 }
+
+.nav-ul{
+  list-style-type:none;
+  display: flex;
+  justify-content: center;
+}
+
+.current-title-nav {
+  grid-area: B;
+  
+}
+
 
 .current-title-poster-container{
   grid-area: F;
@@ -56,7 +68,8 @@
 
 .current-title-poster {
   width: 100%;
-  border: 10px solid aliceblue;
+  height: 100%;
+  border: 10px solid var(--color);
   border-radius: 40px;
   transform: var(--translateXPlusHundred);
   opacity: var(--opacityZero);
@@ -68,31 +81,9 @@
   transform: var(--translateXZero);
 }
 
-/* .current-title-poster.hideToRight {
-  transform: var(--translateXPlusHundred);
-  opacity: var(--opacityZero);
-} */
-
-.current-title-nav {
-  grid-area: B;
-}
-
-.nav-ul{
-  list-style-type:none;
-  display: flex;
-  justify-content: center;
-}
 .nav-ul li{
-  display: inline;
-  width: 30vw;
-  height: 11vh;
   text-align: center;
 }
-
-.current-title-button-container {
-  justify-self: center;
-}
-
 
 .current-title-nav button {
   font-size: 1.2em;
@@ -104,7 +95,6 @@
   border: none;
   transition: font-size 0.5s ease;
 }
-
 
 .current-title-button-container--active {
   border: 2px solid rgb(33, 33, 33);
@@ -119,6 +109,7 @@
 
 .current-info {
   grid-area: D;
+  margin-left: 10px;
   
 }
 
@@ -133,12 +124,6 @@
   opacity: var(--opacityOne);
   transform: var(--translateXZero);
 }
-/* .rating.hideToTop {
-  transform: var(--translateYMinHundred);
-  opacity: var(--opacityZero);
-} */
-
-
 
 .rating-container {
   display: grid;
@@ -197,8 +182,6 @@
   width: 20vh;
 }
 
-
-
 .title-details-hero-description {
   color: rgb(144, 118, 53);
   margin-left: 15px;
@@ -216,10 +199,6 @@
   transition: var(--transition);
   position: relative;
 }
-/* .description-container.hideToLeft {
-  opacity: var(--opacityZero);
-  transform: var(--translateXMinHundred);
-} */
 
 .description-container.showFromLeft {
   opacity: var(--opacityOne);

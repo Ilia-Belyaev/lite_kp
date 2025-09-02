@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getGenre } from '../../store/slices/genres/selectors';
 import { getPopularTitles } from '../../store/slices/popular-titles/selectors';
-import Cards from './cards';
+import { MemoizedCards } from './cards';
 import { getCurrentGenreTitles, getFullSearchingTitleInfo } from '../../store/slices/current-genre-titles/selectors';
 import { setCurrentGenreTitles } from '../../store/slices/current-genre-titles/current-genre-titles';
 import NotFoundTitleCards from '../not-found-title-cards/not-found-title-cards';
@@ -34,5 +34,5 @@ export default function CardsHOC() {
 
   const lastVisibleCards = getLastVisibleCards(titles, visibleCards, searchIsOpened, letter);
 
-  return cards.length > 0 && lastVisibleCards.length > 0 ? <Cards cards={lastVisibleCards}/> : <NotFoundTitleCards/>;
+  return cards.length > 0 && lastVisibleCards.length > 0 ? <MemoizedCards cards={lastVisibleCards}/> : <NotFoundTitleCards/>;
 }

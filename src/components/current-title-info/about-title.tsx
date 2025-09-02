@@ -10,7 +10,7 @@ type AboutTitleProps = {
   classes: (customClass: string, effect: string) => string;
 }
 
-export default function AboutTitle({title, classes}: AboutTitleProps) {
+function AboutTitle({title, classes}: AboutTitleProps) {
   const {description, rating, poster, backdrop, shortDescription,} = title;
 
   return(

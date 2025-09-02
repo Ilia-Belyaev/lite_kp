@@ -56,6 +56,13 @@ export type Genre = {
     'ток-шоу' | 'музыка';
 }
 
+export type CustomGenre = {
+  name: Genre['name'];
+  img: string;
+};
+
+export type CustomGenres = CustomGenre[];
+
 export type BackDrop = {
   previewUrl: string | null;
   url: string | null;

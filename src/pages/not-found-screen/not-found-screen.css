@@ -1,13 +1,14 @@
 .outer_container {
+  background-color: black;
   display: flex;
-  width: auto;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   line-height: 1.1875;
   font-weight: 700;
   font-style: oblique;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 .inner_div {

@@ -19,7 +19,7 @@ export default function Title({title}: FilmProps) {
   const currentBtn = useAppSelector(getBtn);
 
   return(
-    <>
+    <div className='title-big-container'>
       <Header />
       <section className='current-title-container'>
         <div className='current-title-name-container'>
@@ -34,6 +34,6 @@ export default function Title({title}: FilmProps) {
         <CurrentTitleInfo />
       </section>
       <Footer />
-    </>
+    </div>
   );
 }

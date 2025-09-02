@@ -1,4 +1,19 @@
-import { Genres } from './models/models';
+import { CustomGenres, Genres } from './models/models';
+import Action from './images/genre-image/action.svg';
+import Adventure from './images/genre-image/adventure.svg';
+import Animation from './images/genre-image/animation.svg';
+import Comedy from './images/genre-image/comedy.svg';
+import Detective from './images/genre-image/detective.svg';
+import Fantasy from './images/genre-image/fantasy.svg';
+import History from './images/genre-image/history.svg';
+import Horror from './images/genre-image/horror.svg';
+import Musical from './images/genre-image/musical.svg';
+import Romantic from './images/genre-image/romantic.svg';
+import AllGenres from './images/genre-image/all-genres.svg';
+// import SciFi from './images/genre-image/sci-fi.svg';
+// import Triller from './images/genre-image/triller.svg';
+// import War from './images/genre-image/war.svg';
+// import Western from './images/genre-image/western.svg';
 
 export enum AppRoute {
   Main = '/',
@@ -38,7 +53,6 @@ export enum ErrorMessages {
   NoID = 'ID не передан',
   FailLoadData = 'Не удалось загрузить данные',
 }
-
 export const GENRES: Genres = [
   { name: 'все жанры' },
   { name: 'драма' },
@@ -62,25 +76,65 @@ export const GENRES: Genres = [
   { name: 'музыка' }
 ];
 
-// async function getData() {
-//   try {
-//     const response = await fetch('https://api.kinopoisk.dev/v1.4/movie?rating.kp=8-10&limit=100', {
-//       method: 'GET',
-//       headers: {
-//         'X-API-KEY': `` // убедитесь, что токен подставлен корректно
-//       }
-//     });
-
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! Status: ${response.status}`);
-//     }
-
-//     const data = await response.json();
-//     console.log('Полученные данные:', data);
-//   }
-//   catch (error) {
-//     console.error('Произошла ошибка:', error);
-//     console.log('Статус ответа:', response.status);
-//     console.log('Текст ошибки:', response.statusText);
-//   }
-// }
+export const CUSTOM_GENRES: CustomGenres = [
+  { name: 'все жанры',
+    img: AllGenres,
+  },
+  { name: 'драма',
+    img: Romantic,
+  },
+  { name: 'комедия',
+    img: Comedy,
+  },
+  { name: 'мелодрама',
+    img: Romantic,
+  },
+  { name: 'ужасы',
+    img: Horror,
+  },
+  { name: 'документальный',
+    img: History,
+  },
+  { name: 'мультфильм',
+    img: Animation,
+  },
+  { name: 'детский',
+    img: Animation,
+  },
+  { name: 'фэнтези',
+    img: Fantasy,
+  },
+  { name: 'концерт',
+    img: Musical
+  },
+  { name: 'спорт',
+    img: Musical//
+  },
+  { name: 'биография',
+    img: Musical//
+  },
+  { name: 'короткометражка',
+    img: Musical//
+  },
+  { name: 'аниме',
+    img: Animation
+  },
+  { name: 'боевик',
+    img: Action
+  },
+  { name: 'приключения',
+    img: Adventure
+  },
+  { name: 'семейный',
+    img: Musical//
+  },
+  { name: 'криминал',
+    img: Detective
+  },
+  { name: 'ток-шоу',
+    img: Musical//
+  },
+  { name: 'музыка',
+    img: Musical
+  }
+];
