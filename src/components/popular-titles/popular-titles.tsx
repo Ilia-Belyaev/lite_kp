@@ -1,6 +1,5 @@
-import Genres from '../genres/genres';
 import CardsHOC from '../cards-hoc/cards-hoc';
-import './popular-titles.css';
+import Genres from '../genres/genres';
 
 export default function PopularTitles() {
   return (

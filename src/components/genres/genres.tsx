@@ -1,13 +1,12 @@
-import { GENRES } from '../../constants';
-import GenreFilm from './genre-title';
+import { CUSTOM_GENRES } from '../../constants';
+import { MemoizedGenreFilm } from './genre-title';
 import './genres.css';
+import { Carousel } from 'antd';
 
 export default function Genres() {
   return (
-    <div className='catalog-genre__list-container'>
-      <ul className="catalog__genres-list">
-        {GENRES.map((genre) => <GenreFilm genre={genre} key={genre.name}/>)}
-      </ul>
-    </div>
+    <Carousel arrows infinite className='carousel' slidesToShow={5}>
+      {CUSTOM_GENRES.map((genre) => <MemoizedGenreFilm genre={genre} key={genre.name}/>)}
+    </Carousel>
   );
 }

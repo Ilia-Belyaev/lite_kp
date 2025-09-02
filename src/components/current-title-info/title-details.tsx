@@ -9,7 +9,7 @@ type TitleDetailsProps = {
   title: TitleInfo;
   classes: (customClass: string, effect: string) => string;
 }
-export default function TitleDetails({title, classes}:TitleDetailsProps) {
+function TitleDetails({title, classes}:TitleDetailsProps) {
   const {persons, shortDescription, description, genres, watchability, countries} = title;
   const items = watchability?.items ?? '';
 
@@ -34,9 +34,9 @@ export default function TitleDetails({title, classes}:TitleDetailsProps) {
             {` ${setCountriesInline(countries)}`}
           </p>
         </div>
-        <div className='watchability'>
+        <p className='watchability'>
           {items && items.map((item) => <WatchabilityItem item={item} key={item.url}/>)}
-        </div>
+        </p>
       </div>
       <div className='title-person-container'>
         {persons && PERSONS_NAMESPACE.map((name) => <RoleMarkup name={name.name} key={name.name} persons={persons}/>)}

@@ -82,3 +82,15 @@ export const getLastVisibleCards = (searchingCards: TitleCards, genreCards: Titl
 
 export const getFilteredFilms = (films: TitleCards) => films.filter((title) => title.name !== null);
 
+export const debounce = <T extends unknown[]>(
+  cb: (...args: T) => void,
+  timer: number
+) => {
+  let t: ReturnType<typeof setTimeout>;
+
+  return (...args: T) => {
+    clearTimeout(t);
+    t = setTimeout(() => cb(...args), timer);
+  };
+};
+

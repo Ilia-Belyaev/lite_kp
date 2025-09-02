@@ -4,7 +4,7 @@ import '../../css/logo.css';
 import { useAppDispatch } from '../../hooks';
 import { GENRES } from '../../constants';
 import { setGenre } from '../../store/slices/genres/genres';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 export default function Logo() {
   const dispatch = useAppDispatch();
@@ -24,3 +24,5 @@ export default function Logo() {
     </div>
   );
 }
+
+export const MemoizedLogo = memo(Logo);
