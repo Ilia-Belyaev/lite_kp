@@ -8,7 +8,7 @@ export const filterTitles = (payload: [TitleCards, Genre]) => {
   return a;
 };
 
-export const setPhotoUrl = (poster: BackDrop | undefined, backDrop: BackDrop | undefined, undefinedImage: string) =>
+export const setPhotoUrl = (poster?: BackDrop | undefined, backDrop?: BackDrop | undefined, undefinedImage?: string) =>
   poster?.url ?? poster?.previewUrl ??
   backDrop?.url ?? backDrop?.previewUrl ?? undefinedImage;
 
@@ -44,8 +44,8 @@ export const replaceName = (type: string) => {
   }
 };
 
-export const setGenresInline = (genres: Genres) => `${String(genres.map((genre) => genre.name.concat('')))}.`;
-export const setCountriesInline = (countries: Countries) => `${String(countries.map((country) => country.name.concat('')))}.`;
+export const setGenresInline = (genres: Genres) => `${String(genres.map((genre) => genre.name.concat('')))}`;
+export const setCountriesInline = (countries: Countries) => `${String(countries.map((country) => country.name.concat('')))}`;
 
 export const getPersonsCurrentRole = (persons: Person[], role: string) => persons.filter((person) => person.profession === role);
 
@@ -94,3 +94,23 @@ export const debounce = <T extends unknown[]>(
   };
 };
 
+export const calculateStringEnd = (value: number) => {
+  const endings = ['оценок', 'оценка', 'оценки'];
+  const num100 = value % 100;
+  const num10 = value % 10;
+
+  switch (true) {
+    case num100 >= 5 && num100 <= 20:
+      return `${value} ${endings[0]}`;
+    case num10 === 0:
+      return `${value} ${endings[0]}`;
+    case num10 === 1:
+      return `${value} ${endings[1]}`;
+    case num10 >= 2 && num10 <= 4:
+      return `${value} ${endings[2]}`;
+    default:
+      return `${value} ${endings[0]}`;
+  }
+};
+
+export const fixedRating = (rating: number) => rating.toFixed(1);

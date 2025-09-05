@@ -99,8 +99,8 @@ export type TitleInfo = {
   type: string;
   typeNumber: number;
   year: number;
-  description: string;
-  shortDescription: string;
+  description: string | null;
+  shortDescription: string | null;
   slogan: string;
   status: string | null;
   rating: Rating;
@@ -229,4 +229,9 @@ export type SearchTitles = {
   titles: TitleCards;
   searchIsOpened: boolean;
   letter: string;
+}
+
+export type Communication = {
+  contact: string;
+  icon: string;
 }

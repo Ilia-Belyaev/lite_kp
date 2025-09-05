@@ -1,15 +1,18 @@
 import { Button, Input, InputRef, Popover, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import './search.css';
-import { ChangeEvent, memo, useCallback, useMemo, useRef, useState } from 'react';
+import { ChangeEvent, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useAppDispatch } from '../../hooks';
 import { setVisibleTitlesAfterSearch } from '../../store/slices/current-genre-titles/current-genre-titles';
 import { debounce } from '../../utilites/utilites';
+import { TooltipPlacement } from 'antd/es/tooltip';
+import { MAX_WINDOW_WIDTH } from '../../constants';
 
 function SearchButton() {
   const dispatch = useAppDispatch();
   const [value, setValue] = useState('');
   const inputRef = useRef<InputRef>(null);
+  const [placement, setPlacement] = useState<TooltipPlacement>('left');
 
   const debouncedDispatch = useCallback(
     debounce((searchValue: string) => {
@@ -42,6 +45,7 @@ function SearchButton() {
     </div>
   ), [handleChange, value]);
 
+
   const handleFocus = useCallback(() => {
     setTimeout(() => {
       if (inputRef.current) {
@@ -58,11 +62,22 @@ function SearchButton() {
     }));
   }, [dispatch]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setPlacement(window.innerWidth >= MAX_WINDOW_WIDTH ? 'left' : 'bottom');
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <Space title="Поиск">
       <Popover
         trigger='click'
-        placement="right"
+        placement={placement}
         content={content}
         onOpenChange={(isOpen) => {
           if (!isOpen) {

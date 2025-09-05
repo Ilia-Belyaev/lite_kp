@@ -5,7 +5,7 @@ import { Carousel } from 'antd';
 
 export default function Genres() {
   return (
-    <Carousel arrows infinite className='carousel' slidesToShow={5}>
+    <Carousel arrows infinite className='carousel' slidesToShow={1}>
       {CUSTOM_GENRES.map((genre) => <MemoizedGenreFilm genre={genre} key={genre.name}/>)}
     </Carousel>
   );

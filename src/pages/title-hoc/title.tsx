@@ -5,10 +5,6 @@ import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { createNavBtnArray } from '../../utilites/utilites';
 import NavBtn from '../../components/nav-btn/nav-btn';
-import cn from 'classnames';
-import { useAppSelector } from '../../hooks';
-import { getBtn } from '../../store/slices/current-title-nav-btn/selectors';
-
 
 type FilmProps = {
   title: TitleInfo;
@@ -16,16 +12,11 @@ type FilmProps = {
 
 export default function Title({title}: FilmProps) {
   const btnArray = createNavBtnArray(title.type, 'Детали');
-  const currentBtn = useAppSelector(getBtn);
 
   return(
     <div className='title-big-container'>
       <Header />
       <section className='current-title-container'>
-        <div className='current-title-name-container'>
-          <p className={cn('current-title-name', currentBtn === 'Детали' ? 'current-title-name-transform' : '')}>{title.name}</p>
-          {title.alternativeName && <p className={cn('current-title-alternative-name', currentBtn === 'Детали' ? 'current-title-name-transform' : '')}>{`(${title.alternativeName})`}</p>}
-        </div>
         <div className='current-title-nav'>
           <ul className='nav-ul'>
             {btnArray.map((btn) => <NavBtn btn={btn} key={btn}/>)}
