@@ -10,10 +10,11 @@ import Horror from './images/genre-image/horror.svg';
 import Musical from './images/genre-image/musical.svg';
 import Romantic from './images/genre-image/romantic.svg';
 import AllGenres from './images/genre-image/all-genres.svg';
-// import SciFi from './images/genre-image/sci-fi.svg';
-// import Triller from './images/genre-image/triller.svg';
-// import War from './images/genre-image/war.svg';
-// import Western from './images/genre-image/western.svg';
+import Message from './images/footer-images/message.png';
+import Phone from './images/footer-images/phone.png';
+import Location from './images/footer-images/location.png';
+import LinkedIn from './images/footer-images/linkedin.png';
+import Github from './images/footer-images/github.png';
 
 export enum AppRoute {
   Main = '/',
@@ -21,7 +22,11 @@ export enum AppRoute {
   Error = '/*',
 }
 
-export const MAX_VISIBLE_TITLES = 10;
+export const MAX_WINDOW_WIDTH = 900;
+
+export const MAX_PERSONS_LENGTH = 8;
+
+export const MAX_VISIBLE_TITLES = 12;
 
 export const TITLE_COUNT = 10;
 
@@ -108,13 +113,13 @@ export const CUSTOM_GENRES: CustomGenres = [
     img: Musical
   },
   { name: 'спорт',
-    img: Musical//
+    img: Musical
   },
   { name: 'биография',
-    img: Musical//
+    img: Musical
   },
   { name: 'короткометражка',
-    img: Musical//
+    img: Musical
   },
   { name: 'аниме',
     img: Animation
@@ -126,15 +131,43 @@ export const CUSTOM_GENRES: CustomGenres = [
     img: Adventure
   },
   { name: 'семейный',
-    img: Musical//
+    img: Musical
   },
   { name: 'криминал',
     img: Detective
   },
   { name: 'ток-шоу',
-    img: Musical//
+    img: Musical
   },
   { name: 'музыка',
     img: Musical
   }
+];
+
+export const COMMUNICATIONS = [
+  {
+    contact: 'Moscow, Zelenograd',
+    icon: Location,
+  },
+  {
+    contact: '+79969735928',
+    icon: Phone,
+  },
+  {
+    contact: 'ilya.belyaev.95@list.ru',
+    icon: Message,
+  },
+];
+
+export const MY_SITES = [
+  {
+    contact: 'https://github.com/Ilia-Belyaev',
+    icon: Github,
+    isSites: true,
+  },
+  {
+    contact: 'https://linkedin.com/in/ilya-belyaev',
+    icon: LinkedIn,
+    isSites: true,
+  },
 ];

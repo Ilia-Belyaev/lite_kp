@@ -1,17 +1,45 @@
 .cards-section {
   display: flex;
   flex-wrap: wrap;
-  justify-content:flex-start;
-  margin: 2vw;
-  gap: 4vw;
+  justify-content: center;
+  padding: 20px;
 }
 
 .ant-card {
   background-color: transparent;
-  border: 1px solid rgb(233,180,110);
+  border: 1px solid var(--color);
+  margin: 15px;
+  width: 240px;
+  flex: 0 0 240px;
 }
 
 .ant-card-meta-title {
-  color: rgb(233,180,110) !important;
+  color: var(--color) !important;
   text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .ant-card {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  .ant-card {
+    margin: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ant-card {
+    width: calc(50% - 16px);
+    margin: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-card {
+    width: 100%;
+    margin: 8px 0;
+  }
 }

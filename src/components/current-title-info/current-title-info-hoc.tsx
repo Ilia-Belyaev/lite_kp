@@ -7,6 +7,7 @@ import { getBtn } from '../../store/slices/current-title-nav-btn/selectors';
 
 type CurrentTitleInfoProps = {
   title: TitleInfo;
+  button: string;
   classes: (customClass: string, effect: string) => string;
 }
 
@@ -20,7 +21,7 @@ export const CurrentTitleInfoHOC = (Component: ComponentType<CurrentTitleInfoPro
     useEffect(() => {
       setIsVisible(true);
     }, [currentBtn]);
-    return <Component title={title} classes={tagClasses}/>;
+    return <Component title={title} classes={tagClasses} button={currentBtn}/>;
   };
 
   return WrapperComponent;

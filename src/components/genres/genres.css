@@ -1,13 +1,7 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .ant-carousel .slick-slide {
   text-align: center;
+  margin-top: 20px;
+  height: 250px;
 }
 
 .ant-carousel .slick-slide div {
@@ -46,9 +40,10 @@
   flex-direction: column;
   width: fit-content;
   list-style-type: none;
-  padding: 20px;
-  scroll-snap-align: center;
-  margin: 0 10px;
+}
+
+.catalog__genres-link:hover {
+  color: var(--color);
 }
 
 .catalog__genres-list::-webkit-scrollbar {
@@ -57,5 +52,12 @@
 
 .catalog__genres-item--active .catalog__genres-link {
   font-weight: bold;
-  color: rgb(233, 180, 110);
+  color: var(--color);
 }
+
+@media screen and (orientation: landscape){
+  .ant-carousel .slick-slide {
+    margin: 60px 0 30px 0;
+  }
+}
+

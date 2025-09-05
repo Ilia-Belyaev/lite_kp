@@ -16,4 +16,7 @@ function Cards({cards}: CardsProps) {
 }
 
 
-export const MemoizedCards = memo(Cards, (prevProps, newxtProps) => prevProps === newxtProps);
+export const MemoizedCards = memo(Cards, (prevProps, nextProps) => (
+  prevProps.cards.length === nextProps.cards.length &&
+  prevProps.cards.every((card, index) => card.id === nextProps.cards[index].id)
+));
