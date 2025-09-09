@@ -18,7 +18,7 @@ function AboutTitle({title, classes, button}: AboutTitleProps) {
     <div className='about-container'>
       <section className='about-section-info'>
         <div className='current-title-name-container'>
-          <p className={cn('current-title-name', button === 'Детали' ? 'current-title-name-transform' : '')}>{title.name}</p>
+          <div className={cn('current-title-name', button === 'Детали' ? 'current-title-name-transform' : '')}>{title.name}</div>
         </div>
         <div className={classes('rating-year-genre-countries_container', 'showFromRight')}>
           <RatingInfo rating={rating}/>

@@ -38,7 +38,7 @@ function TitleDetails({title, classes, button}:TitleDetailsProps) {
         </div>
         <div className='rating-votes'>
           <RatingInfo rating={rating}/>
-          {votes.kp && <div>{calculateStringEnd(votes.kp)}</div>}
+          {votes.kp && <div className='votes'>{calculateStringEnd(votes.kp)}</div>}
         </div>
         <Description description={description} shortDescription={shortDescription} classes={classes}/>
         <p className='watchability'>
@@ -53,8 +53,8 @@ function TitleDetails({title, classes, button}:TitleDetailsProps) {
         {isModalOpen &&
         <Modal >
           <div className='modal-container'>
-            <button className='back-portal-btn' onClick={() => onClose()}>Close</button>
             {persons && PERSONS_NAMESPACE.map((name) => <MemoRoleMarkup name={name.name} key={name.name} persons={persons}/>)}
+            <button className='back-portal-btn' onClick={() => onClose()}>Закрыть</button>
           </div>
         </Modal>}
       </section>

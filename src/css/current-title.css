@@ -1,6 +1,6 @@
 .title-big-container {
   background-image: url('../images/background-image.jpg');
-  height: fit-content;
+  height: 100vh;
 }
 
 .current-title-container {
@@ -30,8 +30,8 @@
 }
 
 .current-title-name-container {
-  margin: var(--margin-text);
-  font-size: 30px;
+  padding: var(--padding-text);
+  font-size: 2.5em;
   font-family: "Cinzel", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -40,18 +40,21 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 500px;
 }
 
 .rating-year-genre-countries_container {
   display: flex;
-  margin: var(--margin-text);
+  padding: var(--padding-text);
   flex-direction: row;
   gap: 10px;
 }
 
 .rating-votes {
-  margin: var(--margin-text);
+  padding: var(--padding-text);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .rating-container {
@@ -92,25 +95,26 @@
 }
 
 .current-info{
-  margin: var(--margin-text)
+  padding: var(--padding-text)
 }
 
 .watchability {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 30px;
   align-items: start;
-  margin: var(--margin-text)
+  padding: var(--padding-text)
 }
 
 .title-person-container {
-  margin: var(--margin-text)
+  padding: var(--padding-text)
 }
 
 .title-person-inner-container {
   list-style-type:none;
   margin-left: 20px;
-  width: 20vh;
+  width: 20vw;
 }
 
 .title-details-hero-description {
@@ -125,12 +129,6 @@
 
 .role-markup-container {
   width: 100%;
-}
-
-
-.person-proffesion {
-  color: var(--color);
-  gap: 10px;
 }
 
 .title-person-image {
@@ -167,6 +165,8 @@
   transform: var(--translateXPlusHundred);
   opacity: var(--opacityZero);
   transition: var(--transition);
+  border: 1px solid black;
+  border-radius: 30px;
 }
 
 .current-title-poster.showFromRight {
@@ -193,6 +193,11 @@
   transition: font-size 0.5s ease;
 }
 
+.current-title-nav {
+  height: 100px;
+  margin-top: 40px;
+}
+
 .current-title-button-container--active {
   border: 2px solid rgb(33, 33, 33);
   border-radius: 20px;
@@ -204,7 +209,7 @@
   font-size: 1.3em;
 }
 
-.show-more-persons {
+.show-more-persons, .back-portal-btn {
   margin-top: 20px;
   border: 2px solid rgb(33, 33, 33);
   border-radius: 20px;
@@ -215,29 +220,93 @@
 
 .modal-container {
   position: absolute;
+  padding: 20px;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   border-radius: 20px;
-  /* border: 2px solid red; */
-  height: fit-content;
+  border: 2px solid var(--color);
   display: flex;
+  flex-direction: column;
   z-index: 2;
   background-color: black;
   flex-wrap: wrap;
-  width: 100%;
+  width: 80%;
 }
 
+.back-portal-btn {
+  position: absolute;
+  top: -40px;
+  right: -140px;
+  transform: translate(-50%, -50%);
+}
+
+.back-portal-btn:hover, .show-more-persons:hover {
+  cursor: pointer;
+  color: var(--color)
+}
+
+
 .profession {
-  font-size: 25px;
+  font-size: 1.5em;
   color: var(--color);
 }
 
 .person-proffesion {
   display: flex;
   flex-wrap: wrap;
+  color: var(--color);
+  gap: 10px;
 }
 
 .person-profession-container {
   margin-top: 10px;
+}
+
+@media  screen and (width < 1200px) {
+   .current-title-poster-container {
+    width: 100%;
+    height: 50vh;
+    overflow: visible;
+  }
+
+  .about-section-info, .current-info, .rating-votes {
+    font-size: 0.75em;
+  }
+
+  .current-title-name-container {
+    font-size: 2em;
+  }
+
+
+  .current-title-poster {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .title-person-outer-container {
+    font-size: 1.2em;
+  }
+
+  .title-person-inner-container {
+    font-size: 0.75em;
+    width: fit-content;
+  }
+
+}
+
+@media screen and (width < 650px) {
+  .nav-ul{
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .current-title-nav button {
+    font-size: 1em;
+  }
+
+   .current-title-name-container {
+    font-size: 1.5em;
+  }
 }

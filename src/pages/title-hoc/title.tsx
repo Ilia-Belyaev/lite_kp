@@ -2,7 +2,6 @@ import { TitleInfo } from '../../models/models';
 import '../../css/current-title.css';
 import CurrentTitleInfo from '../../components/current-title-info/current-title-info';
 import Header from '../../components/header/header';
-import Footer from '../../components/footer/footer';
 import { createNavBtnArray } from '../../utilites/utilites';
 import NavBtn from '../../components/nav-btn/nav-btn';
 
@@ -24,7 +23,6 @@ export default function Title({title}: FilmProps) {
         </div>
         <CurrentTitleInfo />
       </section>
-      <Footer />
     </div>
   );
 }

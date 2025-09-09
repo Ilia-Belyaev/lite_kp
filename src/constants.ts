@@ -30,6 +30,8 @@ export const MAX_VISIBLE_TITLES = 12;
 
 export const TITLE_COUNT = 10;
 
+export const BTN_VISIBILITY_HEIGHT = 1000;
+
 export enum NameSpace {
   PopularTitles = 'PopularTitles',
   TitleGenres = 'Genres',
@@ -37,6 +39,7 @@ export enum NameSpace {
   VisibleTitles = 'VisibleTitles',
   CurrentTitleInfo = 'CurrentTitleInfo',
   CurrentTitleNavBtn = 'CurrentTitleNavBtn',
+  SeacrhPopover = 'SearchPopover',
 }
 
 export const PERSONS_NAMESPACE = [

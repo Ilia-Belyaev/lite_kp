@@ -7,7 +7,6 @@ type RatingInfoProps = {
 }
 export default function RatingInfo ({rating}: RatingInfoProps) {
   return rating ? (
-    // <div className={classes('rating', 'showFromTop')}>
     <div className='rating'>
       <div className='rating-container kp-rating'>
         <img src={KpLogo} />
