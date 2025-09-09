@@ -1,7 +1,7 @@
 .footer-container {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 100px;
 }
 
 .communication-item-container{
@@ -10,6 +10,21 @@
   align-items: center;
   gap: 20px;
   margin: 0 0 20px 20px;
+}
+
+.float-button {
+  position: static;
+}
+
+.float-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ant-float-btn-icon {
+  display: flex;
+  justify-content: center;
 }
 
 .communication-item-container-sites {
@@ -70,7 +85,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
   }
 
   .paragraph-info{

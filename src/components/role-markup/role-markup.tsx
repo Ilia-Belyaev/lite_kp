@@ -10,11 +10,12 @@ type RoleMarkupProps = {
 
 function RoleMarkup({name, persons}:RoleMarkupProps) {
   const rolePersons = getPersonsCurrentRole(persons, name);
-  const check = rolePersons.length > 0 && rolePersons.every((person) => person.name !== null);
+  const check = rolePersons.length > 0;
+
   return (
     check ? (
       <div className='person-profession-container'>
-        <p className='title-person-inner-container profession'>{upperCaseLetter(name)}</p>
+        <p className='title-person-outer-container profession'>{upperCaseLetter(name)}</p>
         <ul className='person-proffesion'>
           {rolePersons.map((person) => <MemoTitleDetailsPersons person={person} key={person.id}/>)}
         </ul>

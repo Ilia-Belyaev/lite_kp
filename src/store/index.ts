@@ -7,6 +7,7 @@ import { genres } from './slices/genres/genres';
 import { currentGenreTitles } from './slices/current-genre-titles/current-genre-titles';
 import { visibleTitles } from './slices/visible-titles/visible-titles';
 import { currentTitleNavBtn } from './slices/current-title-nav-btn/current-title-nav-btn';
+import { searchPopover } from './slices/searchPopover/searchPopover';
 
 
 const api = createAPI();
@@ -18,6 +19,7 @@ export const createReducers = combineReducers({
   [NameSpace.VisibleTitles]: visibleTitles.reducer,
   [NameSpace.CurrentTitleInfo]: currentTitleInfo.reducer,
   [NameSpace.CurrentTitleNavBtn]: currentTitleNavBtn.reducer,
+  [NameSpace.SeacrhPopover]: searchPopover.reducer,
 });
 
 export const store = configureStore({

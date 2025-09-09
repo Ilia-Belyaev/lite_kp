@@ -47,7 +47,7 @@ export const replaceName = (type: string) => {
 export const setGenresInline = (genres: Genres) => `${String(genres.map((genre) => genre.name.concat('')))}`;
 export const setCountriesInline = (countries: Countries) => `${String(countries.map((country) => country.name.concat('')))}`;
 
-export const getPersonsCurrentRole = (persons: Person[], role: string) => persons.filter((person) => person.profession === role);
+export const getPersonsCurrentRole = (persons: Person[], role: string) => persons.filter((person) => person.profession === role && person.name !== null);
 
 export const upperCaseLetter = (letter: string) => `${letter[0].toUpperCase() + letter.slice(1)}:`;
 
@@ -60,7 +60,7 @@ export const findSearchingTitles = (titles: TitleCards, info: SearchInfo) => {
 
   const newFindedTitles = titles.filter((title) => title.name.toLowerCase().includes(info.letter.trim().toLowerCase()));
 
-  return {titles: newFindedTitles, searchIsOpened: info.isOpen, letter: info.letter};
+  return {titles: newFindedTitles.slice(0,12), searchIsOpened: info.isOpen, letter: info.letter};
 };
 
 export const getLastVisibleCards = (searchingCards: TitleCards, genreCards: TitleCards, isSearchOpened: boolean, text: string) => {
@@ -114,3 +114,6 @@ export const calculateStringEnd = (value: number) => {
 };
 
 export const fixedRating = (rating: number) => rating.toFixed(1);
+
+export const hideShowMoreBtn = (currentGenreTitles: TitleCards, visibleTitles: TitleCards, isPopoverOpen: boolean, innerTextPopover: string) => currentGenreTitles.length === visibleTitles.length || (isPopoverOpen && innerTextPopover.length);
+

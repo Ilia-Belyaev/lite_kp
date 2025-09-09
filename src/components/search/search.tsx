@@ -2,65 +2,71 @@ import { Button, Input, InputRef, Popover, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import './search.css';
 import { ChangeEvent, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useAppDispatch } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setVisibleTitlesAfterSearch } from '../../store/slices/current-genre-titles/current-genre-titles';
 import { debounce } from '../../utilites/utilites';
 import { TooltipPlacement } from 'antd/es/tooltip';
 import { MAX_WINDOW_WIDTH } from '../../constants';
+import { getIsOpenSearch, getPopoverText } from '../../store/slices/searchPopover/selectors';
+import { setSearchPopoverOpen, setTextPopover } from '../../store/slices/searchPopover/searchPopover';
 
 function SearchButton() {
   const dispatch = useAppDispatch();
-  const [value, setValue] = useState('');
   const inputRef = useRef<InputRef>(null);
   const [placement, setPlacement] = useState<TooltipPlacement>('left');
+  const isPopoverOpened = useAppSelector(getIsOpenSearch);
+  const value = useAppSelector(getPopoverText);
+  const spaceRef = useRef<HTMLDivElement>(null);
 
-  const debouncedDispatch = useCallback(
-    debounce((searchValue: string) => {
-      dispatch(setVisibleTitlesAfterSearch({
-        letter: searchValue,
-        isOpen: true,
-      }));
-    }, 300),
-    [dispatch]
-  );
+  const searchHandler = useCallback((searchValue: string) => {
+    dispatch(setVisibleTitlesAfterSearch({
+      letter: searchValue,
+      isOpen: true,
+    }));
+  }, [dispatch]);
+
+  const debouncedDispatch = useMemo(() => debounce(searchHandler, 300), [searchHandler]);
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
-    setValue(newValue);
+    dispatch(setTextPopover(newValue));
     debouncedDispatch(newValue);
-  }, [debouncedDispatch]);
+  }, [debouncedDispatch, dispatch]);
 
   const content = useMemo(() => (
     <div>
       <Input
         placeholder="Введите название"
         className='ant-search-input'
-        onChange={(data) => {
-          setValue(data.target.value);
-          handleChange(data);
-        }}
+        onChange={handleChange}
         value={value}
         ref={inputRef}
       />
     </div>
   ), [handleChange, value]);
 
-
   const handleFocus = useCallback(() => {
     setTimeout(() => {
-      if (inputRef.current) {
-        inputRef.current.focus();
-      }
+      inputRef.current?.focus();
     }, 0);
   }, []);
 
-  const handleClick = useCallback(() => {
-    setValue('');
+  const handleReset = useCallback(() => {
+    dispatch(setTextPopover(''));
     dispatch(setVisibleTitlesAfterSearch({
       letter: '',
       isOpen: false,
     }));
   }, [dispatch]);
+
+  const togglePopover = useCallback(() => {
+    dispatch(setSearchPopoverOpen(!isPopoverOpened));
+    if (isPopoverOpened) {
+      handleReset();
+    } else {
+      handleFocus();
+    }
+  }, [dispatch, isPopoverOpened, handleReset, handleFocus]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -74,23 +80,18 @@ function SearchButton() {
   }, []);
 
   return (
-    <Space title="Поиск">
+    <Space ref={spaceRef} title="Поиск">
       <Popover
-        trigger='click'
+        open={isPopoverOpened}
         placement={placement}
         content={content}
-        onOpenChange={(isOpen) => {
-          if (!isOpen) {
-            handleClick();
-          } else {
-            handleFocus();
-          }
-        }}
+        getPopupContainer={(trigger) => trigger}
       >
         <Button
           className='ant-search-button'
           shape="circle"
           icon={<SearchOutlined />}
+          onClick={togglePopover}
         />
       </Popover>
     </Space>

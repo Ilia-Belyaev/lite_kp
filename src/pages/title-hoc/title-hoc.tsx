@@ -6,6 +6,7 @@ import { fetchTitleInfoAction } from '../../store/api-actions';
 import { getCurrentTitleInfo } from '../../store/slices/current-title-info/selectors';
 import { getPopularTitles } from '../../store/slices/popular-titles/selectors';
 import NotFoundScreen from '../not-found-screen/not-found-screen';
+import { setBtn } from '../../store/slices/current-title-nav-btn/current-title-nav-btn';
 
 
 export default function TitleHOC() {
@@ -22,6 +23,10 @@ export default function TitleHOC() {
   },[dispatch, id, currentTitle]);
 
   const title = useAppSelector(getCurrentTitleInfo);
+
+  useEffect(()=> {
+    dispatch(setBtn(title.type));
+  });
 
   if (!currentTitle) {
     return <NotFoundScreen />;

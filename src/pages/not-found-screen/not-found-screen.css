@@ -7,8 +7,11 @@
   line-height: 1.1875;
   font-weight: 700;
   font-style: oblique;
-  width: 100vw;
-  height: 100vh;
+  position: absolute;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .inner_div {
@@ -25,6 +28,7 @@
   padding: 5px;
   text-align: center;
   margin-top: 30px;
+  text-decoration: none;
 }
 
 .image {

@@ -8,15 +8,21 @@
   font-weight: 700;
   font-style: oblique;
   width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .replay--error{
-  
+  color: black;
+  font-weight: 700;
+  background-color: var(--color);
   border-radius: 10px;
   padding: 5px;
   text-align: center;
   margin-top: 30px;
 }
 .error_image{
-  width: 500px;
-  height: 500px;
+  width: 50vw;
+  height: 50vh;
 }

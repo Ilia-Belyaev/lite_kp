@@ -1,6 +1,6 @@
 import { useAppDispatch } from '../../hooks';
 import { fetchPopularTitleAction } from '../../store/api-actions';
-import Image from '../../images/error_img.svg';
+import Image from '../../images/lost-connect.svg';
 import '../../css/error.css';
 
 export default function Error () {
