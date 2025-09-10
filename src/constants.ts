@@ -24,13 +24,15 @@ export enum AppRoute {
 
 export const MAX_WINDOW_WIDTH = 900;
 
-export const MAX_PERSONS_LENGTH = 8;
+export const MAX_PERSONS_LENGTH = 6;
 
 export const MAX_VISIBLE_TITLES = 12;
 
 export const TITLE_COUNT = 10;
 
-export const BTN_VISIBILITY_HEIGHT = 1000;
+export const MAX_PERSONS_LENGTH_IN_THE_CENTER = 30;
+
+export const BTN_VISIBILITY_HEIGHT = 500;
 
 export enum NameSpace {
   PopularTitles = 'PopularTitles',
