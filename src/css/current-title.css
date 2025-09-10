@@ -1,6 +1,6 @@
 .title-big-container {
   background-image: url('../images/background-image.jpg');
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .current-title-container {
@@ -83,13 +83,6 @@
   transition: var(--transition);
 }
 
-.current-title-poster-container{
-  position: relative;
-  width: 100%;
-  height: 50vh;
-  overflow: hidden;
-}
-
 .description-text {
   line-height: 1.25;
 }
@@ -125,23 +118,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+}
+
+.person-proffesion {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  color: var(--color);
+  gap: 10px;
+}
+
+.person-proffesion-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--color);
+  gap: 10px;
 }
 
 .role-markup-container {
   width: 100%;
-}
-
-.title-person-image {
-  width: 100%;
-  max-width: 200px;
-  height: 50%;
-  max-height: 400px;
-  object-fit: cover;
-  border:1px;
-  border-radius: 20px;
-  position: sticky;
-  top: 10vh;
-
 }
 
 .description-container {
@@ -154,19 +150,6 @@
 .description-container.showFromLeft {
   opacity: var(--opacityOne);
   transform: var(--translateXZero);
-}
-
-.current-title-poster {
-  position: absolute;
-  right: 0;
-  height: 100%;
-  width: auto;
-  object-fit: cover;
-  transform: var(--translateXPlusHundred);
-  opacity: var(--opacityZero);
-  transition: var(--transition);
-  border: 1px solid black;
-  border-radius: 30px;
 }
 
 .current-title-poster.showFromRight {
@@ -210,7 +193,6 @@
 }
 
 .show-more-persons, .back-portal-btn {
-  margin-top: 20px;
   border: 2px solid rgb(33, 33, 33);
   border-radius: 20px;
   width: 100px;
@@ -218,12 +200,16 @@
   background-color: rgb(33, 33, 33);
 }
 
+.show-more-persons {
+  margin-top: 20px;
+}
+
 .modal-container {
   position: absolute;
   padding: 20px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 20px;
   border: 2px solid var(--color);
   display: flex;
@@ -231,14 +217,29 @@
   z-index: 2;
   background-color: black;
   flex-wrap: wrap;
-  width: 80%;
+  width: 70%;
+}
+
+.modal-big-container {
+  position: absolute;
+  padding: 20px;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  border-radius: 20px;
+  border: 2px solid var(--color);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  background-color: black;
+  flex-wrap: wrap;
+  width: 70%;
 }
 
 .back-portal-btn {
   position: absolute;
-  top: -40px;
-  right: -140px;
-  transform: translate(-50%, -50%);
+  top: 10px;
+  right: 10px;
 }
 
 .back-portal-btn:hover, .show-more-persons:hover {
@@ -246,43 +247,45 @@
   color: var(--color)
 }
 
-
 .profession {
   font-size: 1.5em;
   color: var(--color);
-}
-
-.person-proffesion {
-  display: flex;
-  flex-wrap: wrap;
-  color: var(--color);
-  gap: 10px;
 }
 
 .person-profession-container {
   margin-top: 10px;
 }
 
-@media  screen and (width < 1200px) {
-   .current-title-poster-container {
-    width: 100%;
-    height: 50vh;
-    overflow: visible;
-  }
+.current-title-poster-container{
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
 
+.about-section-poster, .about-container {
+  overflow: hidden;
+}
+.current-title-poster {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  transform: var(--translateXPlusHundred);
+  opacity: var(--opacityZero);
+  transition: var(--transition);
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+@media  screen and (width < 1200px) {
   .about-section-info, .current-info, .rating-votes {
     font-size: 0.75em;
   }
 
   .current-title-name-container {
     font-size: 2em;
-  }
-
-
-  .current-title-poster {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
   }
 
   .title-person-outer-container {
@@ -308,5 +311,30 @@
 
    .current-title-name-container {
     font-size: 1.5em;
+    justify-content: center;
   }
+
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-section-poster {
+    width: 60%;
+    margin-top: 20px;
+  }
+
+  .current-title-poster {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .current-title-poster-container {
+    width: 100%;
+    height: 60vh;
+    overflow: visible;
+  }
+  
 }

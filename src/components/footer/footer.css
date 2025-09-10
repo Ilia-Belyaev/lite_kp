@@ -1,7 +1,7 @@
 .footer-container {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: 1fr 1fr 100px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .communication-item-container{
@@ -12,8 +12,13 @@
   margin: 0 0 20px 20px;
 }
 
+.about-me-section {
+  margin-right: 20px;
+}
+
 .float-button {
-  position: static;
+  position:fixed;
+  bottom: 20px;
 }
 
 .float-button-container {
