@@ -49,6 +49,8 @@ export const setCountriesInline = (countries: Countries) => `${String(countries.
 
 export const getPersonsCurrentRole = (persons: Person[], role: string) => persons.filter((person) => person.profession === role && person.name !== null);
 
+export const getLengthPerson = (persons: Person[]) => persons.filter((person) => person.name !== null).length;
+
 export const upperCaseLetter = (letter: string) => `${letter[0].toUpperCase() + letter.slice(1)}:`;
 
 export const findSearchingTitles = (titles: TitleCards, info: SearchInfo) => {
