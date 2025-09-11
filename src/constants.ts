@@ -30,7 +30,7 @@ export const MAX_VISIBLE_TITLES = 12;
 
 export const TITLE_COUNT = 10;
 
-export const MAX_PERSONS_LENGTH_IN_THE_CENTER = 30;
+export const MAX_PERSONS_LENGTH_IN_THE_CENTER = 20;
 
 export const BTN_VISIBILITY_HEIGHT = 500;
 

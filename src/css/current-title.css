@@ -305,6 +305,10 @@
     flex-direction: column;
   }
 
+  .about-section-poster, .about-container {
+    overflow:visible;
+  }
+
   .current-title-nav button {
     font-size: 1em;
   }
