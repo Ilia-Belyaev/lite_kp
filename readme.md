@@ -23,13 +23,13 @@ This project features a clean UI, dynamic filtering, routing, and a custom porta
 
 ### 🏠 Home Page
 
-![Home Page Screenshot](./screenshots/home-page.png)
+![Home Page Screenshot](/src/screenshots/home-page.png)
 
 ---
 
 ### 🎬 Movie Details Page
 
-![Movie Details Screenshot](./screenshots/movie-details-page.png)
+![Movie Details Screenshot](/src/screenshots/movie-details-page.png)
 
 ---
 
@@ -90,8 +90,8 @@ src/
 ├── pages/            # Full pages used in routing (e.g. HomePage, MoviePage)
 ├── screenshots/      # Screenshots for README/documentation
 ├── store/            # Redux Toolkit slices, selectors, and configuration
-├── utilities/        # Helper functions for cleaner component logic
-└── App.tsx           # Root component
+└── utilities/        # Helper functions for cleaner component logic
+
 ```
 
 ---
@@ -107,7 +107,6 @@ src/
 - 📧 ilya.belyaev.95@list.ru
 - 🔗 [GitHub](https://github.com/Ilia-Belyaev)
 - 💼 [LinkedIn](https://www.linkedin.com/in/ilya-belyaev-5ba55a1ab)
-- 📱 +7 (999) 123-45-67
 
 ---
 
