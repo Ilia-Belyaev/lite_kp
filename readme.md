@@ -77,7 +77,6 @@ To run the project locally, follow these steps:
 ---
 
 Or, you can simply check out the **[Live Demo](https://lite-kp.vercel.app)**.
-сп
 
 ## 📁 Project Structure
 
