@@ -3,7 +3,7 @@
 **Lite-KP** is a simplified version of the popular Russian movie service _KinoPoisk_.  
 This project features a clean UI, dynamic filtering, routing, and a custom portal component — all built as a personal initiative to demonstrate front-end development skills.
 
-🔗 **Live Demo**: [https://your-vercel-link.vercel.app](https://your-vercel-link.vercel.app)
+🔗 **Live Demo**: [Live Demo](https://lite-kp.vercel.app)
 
 ---
 
@@ -76,7 +76,7 @@ To run the project locally, follow these steps:
 
 ---
 
-Or, you can simply check out the **[Live Demo](https://your-vercel-link.vercel.app)**.
+Or, you can simply check out the **[Live Demo](https://lite-kp.vercel.app)**.
 сп
 
 ## 📁 Project Structure
