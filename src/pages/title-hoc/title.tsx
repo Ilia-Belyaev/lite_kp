@@ -1,5 +1,5 @@
 import { TitleInfo } from '../../models/models';
-import '../../css/current-title.css';
+import './current-title.css';
 import CurrentTitleInfo from '../../components/current-title-info/current-title-info';
 import Header from '../../components/header/header';
 import { createNavBtnArray } from '../../utilites/utilites';
