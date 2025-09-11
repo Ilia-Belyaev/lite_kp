@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { AppRoute } from './constants';
-import Main from './components/main/main';
-import { useAppSelector } from './hooks';
-import { getErrorStatus, getLoadStatus } from './store/slices/popular-titles/selectors';
-import Error from './pages/error/error';
-import Loading from './components/loading/loading';
-import TitleHOC from './pages/title-hoc/title-hoc';
-import NotFoundScreen from './pages/not-found-screen/not-found-screen';
+import { AppRoute } from '../../constants';
+import Main from '../main/main';
+import { useAppSelector } from '../../hooks';
+import { getErrorStatus, getLoadStatus } from '../../store/slices/popular-titles/selectors';
+import Error from '../../pages/error/error';
+import Loading from '../loading/loading';
+import TitleHOC from '../../pages/title-hoc/title-hoc';
+import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 
 export default function App() {
   const isError = useAppSelector(getErrorStatus);

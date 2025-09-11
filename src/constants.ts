@@ -171,7 +171,7 @@ export const MY_SITES = [
     isSites: true,
   },
   {
-    contact: 'https://linkedin.com/in/ilya-belyaev',
+    contact: 'https://www.linkedin.com/in/ilya-belyaev-5ba55a1ab',
     icon: LinkedIn,
     isSites: true,
   },

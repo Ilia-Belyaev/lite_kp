@@ -1,7 +1,7 @@
 import { useAppDispatch } from '../../hooks';
 import { fetchPopularTitleAction } from '../../store/api-actions';
 import Image from '../../images/lost-connect.svg';
-import '../../css/error.css';
+import './error.css';
 
 export default function Error () {
   const dispatch = useAppDispatch();

@@ -1,5 +1,5 @@
 import Image from '../../images/nothing_not_found.png';
-import '../../css/not-found-title-card.css';
+import './not-found-title-card.css';
 
 export default function NotFoundTitleCards() {
   return(
